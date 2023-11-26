@@ -10,13 +10,19 @@ The command line should be like this:
 ```shell
     python demo/demo.py ${METHOD} ${CONFIG_FILE} ${CHECKPOINT_FILE} [--visualize-path ${IMAGE-FOLDER}] [--suffix ${IMAGE_SUFFIX}][--output-folder ${FOLDER}] [--output-video]
 ``` 
-Example:
+Example BASE Approach:
 ```shell
     python demo/demo.py base configs/vid_R_101_C4_1x.yaml R_101.pth --suffix ".JPEG"\
-        --visualize-path datasets/ILSVRC2015/Data/VID/val/ILSVRC2015_val_00003001 \
-        --output-folder visualization [--output-video]
+        --visualize-path datasets/image_folder \
+        --output-folder visualization --output-video
 ```
-This will generate visualization result using single frame baseline with ResNet-101 backbone. And the results, images with generated bboxes, are saved in folder `visualization`. 
+Example MEGA Approach:
+```shell
+    python demo/demo.py mega configs/MEGA/vid_R_101_C4_MEGA_1x.yaml MEGA_R_101.pth --suffix ".JPEG"\
+        --visualize-path datasets/image_folder \
+        --output-folder visualization --output-video
+```
+This will generate visualization result using single frame baseline or MEGA method with ResNet-101 backbone. And the results, images with generated bboxes, are saved in folder `visualization`. 
 
 Please note that:
 1) If your want to use other methods like MEGA, FGFA, please change METHOD `base` to `mega` or `fgfa`. Currently all methods support visualization, see [`demo.py`](demo.py) for more information about using other methods.
@@ -32,15 +38,10 @@ The command line should be like this:
 ``` 
 Example:
 ```shell
-    python demo/demo.py base configs/vid_R_101_C4_1x.yaml R_101.pth --video \
-        --visualize-path datasets/ILSVRC2015/Data/VID/snippets/val/ILSVRC2015_val_00003001.mp4 \
-        --output-folder visualization [--output-video]
+    python demo/demo.py mega configs/MEGA/vid_R_101_C4_MEGA_1x.yaml MEGA_R_101.pth --video \
+        --visualize-path datasets/v_WalkingWithDog_g10_c03.avi --output-folder visualization/videos/WalkingDog_g10/mega --output-video\
 ```
-This will generate visualization result using single frame baseline with ResNet-101 backbone. And the results, images with generated bboxes, are saved in folder `visualization`. 
+This will generate visualization result using MEGA method with ResNet-101 backbone. And the results, images with generated bboxes, are saved in folder `visualization`. 
 
 Please note that:
-1) All you should know about has given above.
-
-## Misc
-
-Nothing more is needed?
+1) Among the pre-trained models, in addition to changing the model type, you can also use a different backbone type, as shown in the Main Results table in the README.md.
