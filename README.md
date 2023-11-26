@@ -58,9 +58,9 @@ Please follow [INSTALL.md](INSTALL.md) for installation instructions.
 
 ## Data preparation
 
-Please download LAB2-Session1-Additional material from Moodle.
+Please download LAB2-Session1-Additional material from Moodle. Then unzip the file in dataset folder. The path should look like this : 
 
-    ./datasets/image_folder
+    ./mega.pytorch/datasets/image_folder
 
 ### Demo Usage
 Please follow [demo/README.md](demo/README.md) to see how to visualize your own images or video.
